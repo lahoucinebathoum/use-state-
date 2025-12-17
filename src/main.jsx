@@ -31,4 +31,8 @@ import DynamiqueStyle from './DynamiqueStyle'
 
 
 
-createRoot(document.getElementById('root')).render(<ShowInputValue/>)
+createRoot(document.getElementById('root')).render(
+    <>
+        <DynamiqueStyle />
+    </>
+)

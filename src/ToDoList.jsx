@@ -1,7 +1,12 @@
 function ToDoList() {
+    const todo = ['anroh']
     return(
         <>
-            hello from todo
+            <input type="text" />
+            <button>ADD TODO</button>
+            <ul>
+                <li>sdfdf</li>
+            </ul>
         </>
     )
 };

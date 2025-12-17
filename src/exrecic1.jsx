@@ -1,14 +1,27 @@
+import { useState } from "react"
+
 export default function Exercic() {
-    function HandelInput(){
 
-        document.getElementById('screen').innerHTML = document.getElementById('input').value
+    const [inputValue, setInputValue] = useState('')
+    const [title , setTitle] = useState('ERROR 4 0 4')
+    
+    function handleTitle(){
+        
+        setTitle(inputValue)
     }
-    return(
 
+    return (
         <>
-        <h1 id="screen"> hanananananjhidasfkjl </h1>
-        <input id="input" type="text" />
-        <button onClick={HandelInput} >Add</button>
+            <h1 id="screen">{title}</h1>
+            <input
+                id="input"
+                type="text"
+                onChange={(e)=>{
+                    setInputValue(e.target.value)
+                }}
+            />
+            <button onClick={()=>{handleTitle()}} >Add</button>
+            <button onClick={handleTitle} >gawr</button>
         </>
     )
 };
