@@ -1,38 +1,29 @@
-import { createRoot } from 'react-dom/client'
-import { useState } from 'react'
-import Exercic from './exrecic1'
-import ShowInputValue from './ShowInputValue'
-import ToDoList from './ToDoList'
-import DynamiqueStyle from './DynamiqueStyle'
+import { createRoot } from "react-dom/client";
+import { useState } from "react";
+import Exercic from "./exrecic1";
+import ShowInputValue from "./ShowInputValue";
+import DynamiqueStyle from "./DynamiqueStyle";
+import ToDoList from "./ToDoList";
 
-// function Btn(props){
-//   function show (a){
-//   alert('hello'+a)
-// }
-//   return(
-//     <button onClick={()=>show('agrah')}>{props.title}</button>
-//   )
-// }
-// function Aa(){
-// const [fname, setFname] = useState('malika')
-//   return(
-//     <>
-//     <Btn  title='add' />
-//     <Btn  title='delete' />
-//     <Btn  title='create' />
-//     <h1>hello {fname}</h1>
-//     <button onClick={()=>setFname('khalil')} >{fname}</button>
-//     <button onClick={()=>setFname('Driss')} >{fname}</button>
-//     <button onClick={()=>setFname(' Faysal')} >{fname} chi</button>
-//     <a href='https://www.w3schools.com/react/react_hooks.asp' >hello</a>
-//     </>
-//   )
-// }
+function App() {
+  const [title, setTitle] = useState("Exercice 1");
 
-
-
-createRoot(document.getElementById('root')).render(
+  return (
     <>
-        <DynamiqueStyle />
+      <h2>Exercice 1</h2>
+
+      {/* Composant 1 */}
+      <Exercic onSendTitle={setTitle} />
+
+      {/* Composant 2 */}
+      <ShowInputValue onSend={setTitle} />
+
+      {/* Affichage avec style dynamique */}
+      <DynamiqueStyle title={title} />
+      <ToDoList onSend={setTitle} />
     </>
-)
+  );
+}
+
+createRoot(document.getElementById("root")).render(<App />);
+

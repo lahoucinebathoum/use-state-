@@ -1,15 +1,34 @@
+import { useState } from "react";
+
 function ToDoList() {
-    const todo = ['anroh']
-    return(
-        <>
-            <input type="text" />
-            <button>ADD TODO</button>
-            <ul>
-                <li>sdfdf</li>
-            </ul>
-        </>
-    )
-};
+  const [inputValue, setInputValue] = useState("");
+  const [todos, setTodos] = useState([]);
 
+  const addTodo = () => {
+    if (inputValue.trim() === "") return;
 
-export default ToDoList
+    setTodos([...todos, inputValue]);
+    setInputValue("");
+  };
+
+  return (
+    <>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Enter a todo"
+      />
+
+      <button onClick={addTodo}>ADD TODO</button>
+
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={index}>{todo}</li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+export default ToDoList;
